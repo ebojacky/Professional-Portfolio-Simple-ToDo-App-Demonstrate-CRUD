@@ -1,0 +1,67 @@
+body {
+    font-family: "Baskerville";
+    margin: 2% 20%;
+}
+
+.input_text{
+    width: 50%;
+    height: 45px;
+    font-size: 1.5rem;
+}
+.submit_button{
+    width: 20%;
+    height: 50px;
+    font-size: 1.5rem;
+
+}
+.other_button{
+    width: 10%;
+    padding-left: 2%;
+    height:25px;
+    padding-left: 2%;
+    padding-right: 2%;
+
+}
+.check_box{
+    width: 5%;
+    height: 15px;
+    padding-left: 2%;
+    padding-right: 2%;
+    display: inline;
+}
+
+.todo_text{
+    width: 40%;
+    height: 25px;
+    padding-right: 5%;
+    inline-size: 40%;
+    overflow-wrap: break-word;
+    font-weight: bolder;
+    display: inline-table;
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    text-align: center;
+    color: black;
+  }
+  
+  a:link,
+  a:visited,
+  a:focus {
+    background: aqua;
+  }
+  
+  a:hover {
+    background: green;
+  }
+  
+  a.delete:hover {
+    background: red;
+  }
+
+  a:active {
+    background: green;
+    color: white;
+  }

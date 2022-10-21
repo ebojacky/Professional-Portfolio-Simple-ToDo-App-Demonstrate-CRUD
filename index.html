@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>To Do App</title>
+    <link href="{{ url_for('static', filename='styles.css') }}" rel="stylesheet">
+</head>
+
+<body>
+    <h3>To Do List</h3>
+
+    {% if edit == False %}
+
+    <form action="{{ url_for('add') }}" method="post">
+        <input class="input_text" id="new_todo" name="new_todo" placeholder="Enter new To Do" type="text">
+        <input class="submit_button" type="submit" value="Add">
+    </form>
+
+
+    {% for todo in todo_list %}
+
+    <p>
+        {% set text = "Done" %}
+        {% if todo.completed==1: %}
+        {% set text = "Undo" %}
+        {% endif %}
+        <div class="todo_text">{{ todo.title }}</div>
+        <input class="check_box" disabled id="check" name="check" type="checkbox" {{'checked="checked"' if todo.completed==1 else ""}} >
+        <a class="other_button" href="{{ url_for('done_undo', id=todo.id) }}">{{ text }}</a>
+        <a class="other_button" href="{{ url_for('edit', id=todo.id) }}">Edit</a>
+        <a class="other_button delete" href="{{ url_for('delete', id=todo.id) }}">Delete</a>
+
+    </p>
+
+
+    {% endfor %}
+
+    </form>
+
+    {% else %}
+
+    <form action="{{ url_for('edit') }}" method="post">
+        <input hidden="hidden" id="id" name="id" value="{{ todo.id }}">
+        <input class="input_text" id="edit_todo" name="edit_todo" type="text" value="{{ todo.title }}">
+        <input class="submit_button" type="submit" value="Save" />
+    </form>
+
+    {% endif %}
+</body>
+
+</html>
